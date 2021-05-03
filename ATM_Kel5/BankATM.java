@@ -229,7 +229,7 @@ public class BankATM extends javax.swing.JFrame {
         }
     }
 
-    public void btnKeluar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
+    public void btnKeluar(java.awt.event.ActionEvent evt) {
         dispose();
     }
 
