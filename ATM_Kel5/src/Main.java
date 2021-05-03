@@ -6,9 +6,8 @@ public class Main extends BankATM {
     //override
     public void btnCekSaldo(java.awt.event.ActionEvent evt) {
         //encapsulation
-        JOptionPane.showMessageDialog(rootPane, "Saldo Anda Saat Ini adalah :"+ saldo);
-        hasil = saldo;
-        saldo = hasil;
+        JOptionPane.showMessageDialog(rootPane, "Saldo Anda Saat Ini adalah :"+ getSaldo());
+        hasil = getSaldo();
         answer = String.format(" %,.2f ",hasil);
         jtxtTampilan2.setText(answer);
     }
