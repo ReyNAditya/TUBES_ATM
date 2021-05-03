@@ -169,6 +169,9 @@ public class BankATM extends javax.swing.JFrame {
     public void btnCekSaldo(java.awt.event.ActionEvent evt)
     {
         JOptionPane.showMessageDialog(rootPane, "Saldo Anda Saat Ini adalah :"+ saldo);
+        hasil = saldo;
+        saldo=hasil;
+        answer = String.format(" %,.2f ",hasil);
         jtxtTampilan2.setText(answer);
     }
     public void btnSimpan(java.awt.event.ActionEvent evt) {
