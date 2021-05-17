@@ -1,13 +1,14 @@
 import javax.swing.JOptionPane;
 
-public class BankATM extends javax.swing.JFrame {
+public class BankATM extends javax.swing.JFrame implements Functions{
 
     double hasil;
     String answer;
-
     //encapsulation
     private double saldo;
     int masukan;
+
+
     public BankATM() {
         Components();
 
@@ -15,8 +16,13 @@ public class BankATM extends javax.swing.JFrame {
 
     //overload
     public void BankATM(int saldo) {
-
         this.saldo = saldo;
+    }
+
+    //override
+    @Override
+    public  void logError(String methodName, String errorMessage){
+        System.out.println("Method name:" + methodName + ", error message: " + errorMessage);
     }
 
     //encapsulation
@@ -82,6 +88,7 @@ public class BankATM extends javax.swing.JFrame {
         btnAmbil.setText("Ambil");
         btnAmbil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+
                 btnAmbil(evt);
             }
         });
@@ -183,7 +190,9 @@ public class BankATM extends javax.swing.JFrame {
         answer = String.format(" %,.2f ",saldo);
         jtxtTampilan2.setText(answer);
         } catch (NumberFormatException exc) {
-            JOptionPane.showMessageDialog(rootPane, "There's an error in the input, Please input numbers[0-9]");
+            String error = "There's an error in the input, Please input numbers[0-9]";
+            this.logError("btnSimpan", error);
+            JOptionPane.showMessageDialog(rootPane, error);
         }
     }
 
@@ -204,7 +213,9 @@ public class BankATM extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane,"Saldo Anda Saat Ini adalah :"+ saldo+ "\n");
         }
         } catch (NumberFormatException exc) {
-            JOptionPane.showMessageDialog(rootPane, "There's an error in the input, Please input numbers[0-9]");
+            String error = "There's an error in the input, Please input numbers[0-9]";
+            this.logError("btnAmbil", error);
+            JOptionPane.showMessageDialog(rootPane, error);
         }
     }
 
@@ -225,11 +236,14 @@ public class BankATM extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane,"Saldo Anda Saat Ini adalah :"+ saldo+ "\n"+ "Berhasil transfer kepada "+nama3+"\nsebesar :"+ masukan);
         }
         } catch (NumberFormatException exc) {
-            JOptionPane.showMessageDialog(rootPane, "There's an error in the input, Please input numbers[0-9]");
+            String error = "There's an error in the input, Please input numbers[0-9]";
+            this.logError("btnTransfer", error);
+            JOptionPane.showMessageDialog(rootPane, error);
         }
     }
 
     public void btnKeluar(java.awt.event.ActionEvent evt) {
+
         dispose();
     }
 
